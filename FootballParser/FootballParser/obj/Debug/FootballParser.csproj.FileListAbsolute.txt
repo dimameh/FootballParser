@@ -11,3 +11,16 @@ C:\Users\User\Desktop\Парсер Футбольной статистики\Foo
 C:\Users\User\Desktop\Парсер Футбольной статистики\FootballParser\FootballParser\obj\Debug\FootballParser.exe
 C:\Users\User\Desktop\Парсер Футбольной статистики\FootballParser\FootballParser\obj\Debug\FootballParser.pdb
 C:\Users\User\Desktop\Парсер Футбольной статистики\FootballParser\FootballParser\obj\Debug\FootballParser.FootballParser.resources
+D:\FootballParser\FootballParser\FootballParser\bin\Debug\FootballParser.exe.config
+D:\FootballParser\FootballParser\FootballParser\bin\Debug\FootballParser.exe
+D:\FootballParser\FootballParser\FootballParser\bin\Debug\FootballParser.pdb
+D:\FootballParser\FootballParser\FootballParser\bin\Debug\AngleSharp.dll
+D:\FootballParser\FootballParser\FootballParser\bin\Debug\AngleSharp.xml
+D:\FootballParser\FootballParser\FootballParser\obj\Debug\FootballParser.csprojAssemblyReference.cache
+D:\FootballParser\FootballParser\FootballParser\obj\Debug\FootballParser.FootballParser.resources
+D:\FootballParser\FootballParser\FootballParser\obj\Debug\FootballParser.Properties.Resources.resources
+D:\FootballParser\FootballParser\FootballParser\obj\Debug\FootballParser.csproj.GenerateResource.cache
+D:\FootballParser\FootballParser\FootballParser\obj\Debug\FootballParser.csproj.CoreCompileInputs.cache
+D:\FootballParser\FootballParser\FootballParser\obj\Debug\FootballParser.csproj.CopyComplete
+D:\FootballParser\FootballParser\FootballParser\obj\Debug\FootballParser.exe
+D:\FootballParser\FootballParser\FootballParser\obj\Debug\FootballParser.pdb

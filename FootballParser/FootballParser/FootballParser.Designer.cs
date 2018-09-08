@@ -35,6 +35,7 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.team2 = new System.Windows.Forms.TextBox();
 			this.buttonStop = new System.Windows.Forms.Button();
+			this.testbox = new System.Windows.Forms.RichTextBox();
 			this.SuspendLayout();
 			// 
 			// InfoListBox
@@ -99,11 +100,20 @@
 			this.buttonStop.UseVisualStyleBackColor = true;
 			this.buttonStop.Click += new System.EventHandler(this.buttonStop_Click);
 			// 
+			// testbox
+			// 
+			this.testbox.Location = new System.Drawing.Point(577, 12);
+			this.testbox.Name = "testbox";
+			this.testbox.Size = new System.Drawing.Size(584, 467);
+			this.testbox.TabIndex = 7;
+			this.testbox.Text = "";
+			// 
 			// FootballParser
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(600, 450);
+			this.ClientSize = new System.Drawing.Size(1293, 658);
+			this.Controls.Add(this.testbox);
 			this.Controls.Add(this.buttonStop);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.team2);
@@ -127,6 +137,7 @@
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox team2;
 		private System.Windows.Forms.Button buttonStop;
+		private System.Windows.Forms.RichTextBox testbox;
 	}
 }
 

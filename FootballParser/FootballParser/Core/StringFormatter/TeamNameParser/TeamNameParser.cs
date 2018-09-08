@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using AngleSharp.Dom;
 using AngleSharp.Dom.Html;
 
 namespace FootballParser.Core.StringFormatter.TeamNameParser
@@ -10,13 +12,11 @@ namespace FootballParser.Core.StringFormatter.TeamNameParser
 		{
 			var list = new List<string>();
 
-			var items = document.QuerySelectorAll("table").Where(item =>
-				item.ClassName != null && item.ClassName.Contains("championship"));
-
+			var items = document.QuerySelectorAll("a[href*='/p/7003/club/']");
 
 			foreach (var item in items)
 			{
-				list.Add(item.TextContent);
+				list.Add(item.GetAttribute("href").Substring(13));
 			}
 
 			return list.ToArray();

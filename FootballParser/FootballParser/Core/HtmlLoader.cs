@@ -67,7 +67,7 @@ namespace FootballParser.Core
 		private void TeamNameUrlMaker(TeamNameSettings settings)
 		{
 			url =
-				$"{settings.BaseUrl}/{settings.PrefixTable}/year/{settings.PrefixYear}/";
+				$"{settings.BaseUrl}/{settings.PrefixTable}/{settings.PrefixYear}";
 		}
 
 		public async Task<string> GetSourceByUefaTable()
