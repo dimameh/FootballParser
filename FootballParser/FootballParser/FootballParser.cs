@@ -14,32 +14,33 @@ namespace FootballParser
 	public partial class FootballParser : Form
 	{
 
-		//private readonly ParserWorker<string[]> wildParser;
+		private readonly ParserWorker<string[]> wildParser;
 
-		private readonly ParserWorker<string[]> teamNamesParser;
+		private TeamNameDictionary TeamNames;
 
 		public FootballParser()
 		{
 			InitializeComponent();
-			//wildParser = new ParserWorker<string[]>(
-			//	new WildParser()
-			//);
+			wildParser = new ParserWorker<string[]>(
+				new WildParser()
+			);
 
-			teamNamesParser = new ParserWorker<string[]>(new TeamNameParser());
+			TeamNames = new TeamNameDictionary();
 
-			teamNamesParser.OnCompleted += WildParserOnCompleted;
-			teamNamesParser.OnNewData += WildParserOnNewData;
-
-			//wildParser.OnCompleted += WildParserOnCompleted;
-			//wildParser.OnNewData += WildParserOnNewData;
+			wildParser.OnCompleted += WildParserOnCompleted;
+			wildParser.OnNewData += WildParserOnNewData;
 		}
 
 		private void WildParserOnNewData(object arg1, string[] arg2)
 		{
-			InfoListBox.Items.AddRange(arg2);
-			foreach (var asd in arg2)
+			//InfoListBox.Items.AddRange(arg2);
+			//foreach (var asd in arg2)
+			//{
+			//	testbox.Text += asd;
+			//}
+			foreach (var key in TeamNames.Teams.Keys)
 			{
-				testbox.Text += asd;
+				testbox.Text += key + " - " + TeamNames.Teams[key];
 			}
 		}
 
@@ -53,15 +54,13 @@ namespace FootballParser
 			//wildParser.Settings = new WildSettings(team1.Text, team2.Text);
 			///////////////////////////
 
-			//wildParser.Settings = new WildSettings("ESP_CD_Leganes", "ESP_Athletic_Bilbao");
-			//wildParser.Start();
-			teamNamesParser.Settings = new TeamNameSettings();
-			teamNamesParser.Start();
+			wildParser.Settings = new WildSettings("ESP_CD_Leganes", "ESP_Athletic_Bilbao");
+			wildParser.Start();
 		}
 
 		private void buttonStop_Click(object sender, EventArgs e)
 		{
-			teamNamesParser.Abort();
+			wildParser.Abort();
 		}
 	}
 }

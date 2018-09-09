@@ -1,26 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using AngleSharp.Dom;
 using AngleSharp.Dom.Html;
 
 namespace FootballParser.Core.StringFormatter.TeamNameParser
 {
-	internal class TeamNameParser : IParser<string[]>
+	internal class TeamNameParser : IParser<Dictionary<string, string>>
 	{
-		public string[] Parse(IHtmlDocument document)
+
+		public Dictionary<string, string> Parse(IHtmlDocument document)
 		{
-			var list = new List<string>();
+			var hrefList = new List<string>();
+			var nameList = new List<string>();
+			Dictionary<string, string> dictionary = new Dictionary<string, string>();
+			var hrefs = document.QuerySelectorAll("a[href*='/p/7003/club/']");
 
-			var items = document.QuerySelectorAll("a[href*='/p/7003/club/']");
-
-			foreach (var item in items)
+			foreach (var item in hrefs)
 			{
-				list.Add(item.GetAttribute("href").Substring(13));
+				nameList.Add(item.TextContent);
+				hrefList.Add(item.GetAttribute("href").Substring(13));
 			}
 
-			return list.ToArray();
-		}
 
+
+			for (int i = 0; i < nameList.Count; i++)
+			{
+				Debug.WriteLine(i + ")\t" + nameList[i] + " - " + hrefList[i]);
+
+				if (!dictionary.ContainsKey(nameList[i]))
+				{
+					dictionary.Add(nameList[i], hrefList[i]);
+				}
+			}
+
+			return dictionary;
+		}
 	}
 }

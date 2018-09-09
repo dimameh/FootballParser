@@ -55,6 +55,7 @@
     <Compile Include="Core\ParserWorker.cs" />
     <Compile Include="Core\StringFormatter\Match.cs" />
     <Compile Include="Core\StringFormatter\Team.cs" />
+    <Compile Include="Core\StringFormatter\TeamNameParser\TeamNameDictionary.cs" />
     <Compile Include="Core\StringFormatter\TeamNameParser\TeamNameParser.cs" />
     <Compile Include="Core\StringFormatter\TeamNameParser\TeamNameSettings.cs" />
     <Compile Include="Core\StringFormatter\TwoTeamWildStat.cs" />
