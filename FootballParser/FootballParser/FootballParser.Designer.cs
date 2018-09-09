@@ -29,13 +29,13 @@
 		private void InitializeComponent()
 		{
 			this.InfoListBox = new System.Windows.Forms.ListBox();
-			this.team1 = new System.Windows.Forms.TextBox();
 			this.buttonStart = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
-			this.team2 = new System.Windows.Forms.TextBox();
 			this.buttonStop = new System.Windows.Forms.Button();
 			this.testbox = new System.Windows.Forms.RichTextBox();
+			this.team1 = new System.Windows.Forms.ComboBox();
+			this.team2 = new System.Windows.Forms.ComboBox();
 			this.SuspendLayout();
 			// 
 			// InfoListBox
@@ -47,13 +47,6 @@
 			this.InfoListBox.Name = "InfoListBox";
 			this.InfoListBox.Size = new System.Drawing.Size(366, 404);
 			this.InfoListBox.TabIndex = 0;
-			// 
-			// team1
-			// 
-			this.team1.Location = new System.Drawing.Point(399, 37);
-			this.team1.Name = "team1";
-			this.team1.Size = new System.Drawing.Size(139, 22);
-			this.team1.TabIndex = 1;
 			// 
 			// buttonStart
 			// 
@@ -83,13 +76,6 @@
 			this.label2.TabIndex = 5;
 			this.label2.Text = "Команда 2";
 			// 
-			// team2
-			// 
-			this.team2.Location = new System.Drawing.Point(399, 82);
-			this.team2.Name = "team2";
-			this.team2.Size = new System.Drawing.Size(139, 22);
-			this.team2.TabIndex = 4;
-			// 
 			// buttonStop
 			// 
 			this.buttonStop.Location = new System.Drawing.Point(399, 150);
@@ -102,24 +88,40 @@
 			// 
 			// testbox
 			// 
-			this.testbox.Location = new System.Drawing.Point(577, 12);
+			this.testbox.Location = new System.Drawing.Point(697, 17);
 			this.testbox.Name = "testbox";
 			this.testbox.Size = new System.Drawing.Size(584, 467);
 			this.testbox.TabIndex = 7;
 			this.testbox.Text = "";
+			// 
+			// team1
+			// 
+			this.team1.FormattingEnabled = true;
+			this.team1.Location = new System.Drawing.Point(399, 37);
+			this.team1.Name = "team1";
+			this.team1.Size = new System.Drawing.Size(292, 24);
+			this.team1.TabIndex = 8;
+			// 
+			// team2
+			// 
+			this.team2.FormattingEnabled = true;
+			this.team2.Location = new System.Drawing.Point(399, 82);
+			this.team2.Name = "team2";
+			this.team2.Size = new System.Drawing.Size(292, 24);
+			this.team2.TabIndex = 9;
 			// 
 			// FootballParser
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1293, 658);
+			this.Controls.Add(this.team2);
+			this.Controls.Add(this.team1);
 			this.Controls.Add(this.testbox);
 			this.Controls.Add(this.buttonStop);
 			this.Controls.Add(this.label2);
-			this.Controls.Add(this.team2);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.buttonStart);
-			this.Controls.Add(this.team1);
 			this.Controls.Add(this.InfoListBox);
 			this.Name = "FootballParser";
 			this.Text = "Form1";
@@ -131,13 +133,13 @@
 		#endregion
 
 		private System.Windows.Forms.ListBox InfoListBox;
-		private System.Windows.Forms.TextBox team1;
 		private System.Windows.Forms.Button buttonStart;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.TextBox team2;
 		private System.Windows.Forms.Button buttonStop;
 		private System.Windows.Forms.RichTextBox testbox;
+		private System.Windows.Forms.ComboBox team1;
+		private System.Windows.Forms.ComboBox team2;
 	}
 }
 

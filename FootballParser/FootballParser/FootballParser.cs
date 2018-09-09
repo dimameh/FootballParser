@@ -13,34 +13,42 @@ namespace FootballParser
 {
 	public partial class FootballParser : Form
 	{
+		private readonly ParserWorker<string[]> _wildParser;
 
-		private readonly ParserWorker<string[]> wildParser;
-
-		private TeamNameDictionary TeamNames;
+		private TeamNameDictionary _teamNames;
 
 		public FootballParser()
 		{
 			InitializeComponent();
-			wildParser = new ParserWorker<string[]>(
+			_wildParser = new ParserWorker<string[]>(
 				new WildParser()
 			);
 
-			TeamNames = new TeamNameDictionary();
+			InitTeamNames();
 
-			wildParser.OnCompleted += WildParserOnCompleted;
-			wildParser.OnNewData += WildParserOnNewData;
+			_wildParser.OnCompleted += WildParserOnCompleted;
+			_wildParser.OnNewData += WildParserOnNewData;
+		}
+
+		private void InitTeamNames()
+		{
+			_teamNames = new TeamNameDictionary();
+			_teamNames.teamNamesParser.OnCompleted += delegate
+				{
+					foreach (var value in _teamNames.Teams)
+					{
+						team1.Items.Add(value.Key);
+						team2.Items.Add(value.Key);
+					}
+				};
 		}
 
 		private void WildParserOnNewData(object arg1, string[] arg2)
 		{
-			//InfoListBox.Items.AddRange(arg2);
-			//foreach (var asd in arg2)
-			//{
-			//	testbox.Text += asd;
-			//}
-			foreach (var key in TeamNames.Teams.Keys)
+			InfoListBox.Items.AddRange(arg2);
+			foreach (var value in arg2)
 			{
-				testbox.Text += key + " - " + TeamNames.Teams[key];
+				testbox.Text += value;
 			}
 		}
 
@@ -50,17 +58,14 @@ namespace FootballParser
 		}
 
 		private void buttonStart_Click(object sender, EventArgs e)
-		{
-			//wildParser.Settings = new WildSettings(team1.Text, team2.Text);
-			///////////////////////////
-
-			wildParser.Settings = new WildSettings("ESP_CD_Leganes", "ESP_Athletic_Bilbao");
-			wildParser.Start();
+		{																																																																														
+			_wildParser.Settings = new WildSettings(_teamNames.Teams[team1.SelectedItem.ToString()], _teamNames.Teams[team2.SelectedItem.ToString()]);
+			_wildParser.Start();
 		}
 
 		private void buttonStop_Click(object sender, EventArgs e)
 		{
-			wildParser.Abort();
+			_wildParser.Abort();
 		}
 	}
 }

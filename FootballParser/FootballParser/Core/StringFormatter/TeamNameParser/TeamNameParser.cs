@@ -27,8 +27,6 @@ namespace FootballParser.Core.StringFormatter.TeamNameParser
 
 			for (int i = 0; i < nameList.Count; i++)
 			{
-				Debug.WriteLine(i + ")\t" + nameList[i] + " - " + hrefList[i]);
-
 				if (!dictionary.ContainsKey(nameList[i]))
 				{
 					dictionary.Add(nameList[i], hrefList[i]);
